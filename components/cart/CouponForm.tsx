@@ -1,4 +1,4 @@
-import {  SubmitEvent } from "react"
+import {  FormEvent } from "react"
 import { useStore } from "@/src/store"
 
 export default function CouponForm() {
@@ -6,7 +6,7 @@ export default function CouponForm() {
     const applyCoupon = useStore(state => state.applyCoupon)
     const coupon = useStore(state => state.coupon)
 
-    const handleSubmit = async (e : SubmitEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
         const couponName = formData.get('coupon_name')?.toString() || '' 

@@ -1,4 +1,4 @@
-import { TransactionResponseSchema, TransactionsResponseSchema } from "./schemas"
+import { TransactionsResponseSchema } from "./schemas"
 
 export async function getSalesByDate(date: string) {
     const url = `${process.env.NEXT_PUBLIC_DOMAIN}/admin/sales/api?transactionDate=${date}`

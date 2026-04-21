@@ -15,7 +15,7 @@ export default function EditProductForm({ children }: { children: React.ReactNod
         errors: [],
         success: ''
     })
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         if(state.errors) {
             state.errors.forEach(error => toast.error(error))
