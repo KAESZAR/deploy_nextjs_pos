@@ -27,7 +27,7 @@ To get started with this project, follow these steps:
 - React
 - Node.js
 - CSS
-- MongoDB (optional)
+- Pg + TypeOrm (No Monorepo(back/Nest.js))
 
 # Deployment Info
 This application can be deployed on platforms like Vercel, Heroku, or AWS. To deploy, follow the respective guide for the platform you choose.
