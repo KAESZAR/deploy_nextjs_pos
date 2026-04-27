@@ -1,9 +1,7 @@
-
-
-
-
 # Project Description
 This project is a Next.js application that serves as a Point of Sale (POS) system. It is designed to help manage sales transactions efficiently with a user-friendly interface.
+
+# Video (demo):https://youtu.be/a30GWHVmYWs
 
 # Quick Start Guide
 To get started with this project, follow these steps:
