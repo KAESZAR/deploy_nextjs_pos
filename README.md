@@ -3,6 +3,9 @@ This project is a Next.js application that serves as a Point of Sale (POS) syste
 
 # [![Clic para reproducir la demo](url-de-tu-miniatura.png)](https://youtu.be/a30GWHVmYWs)
 
+# For recruiters: no login required. (demo mode).
+This project has two repositories: back (deployment in render) and front (Vercel).
+Very intuitive user experience.
 
 # Quick Start Guide
 To get started with this project, follow these steps:
