@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# POSNest — Point of Sale System
 
-## Getting Started
+[![Demo](https://img.youtube.com/vi/a30GWHVmYWs/0.jpg)](https://youtu.be/a30GWHVmYWs)
 
-First, run the development server:
+> **For recruiters:** No login required — demo mode enabled.  
+> Two separate repos: [frontend (Vercel)](https://github.com/KAESZAR/deploy_nextjs_pos) · backend (NestJS / Render)
+
+Full-stack Point of Sale application built with **Next.js 15**, **NestJS**, and **PostgreSQL**. Features product management, shopping cart, coupon discounts, daily sales tracking with calendar filtering, and Cloudinary image uploads.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Framework** | Next.js 15 (App Router) |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS |
+| **State / Data** | Zustand + TanStack React Query |
+| **Validation** | Zod |
+| **UI** | react-calendar, react-dropzone, react-toastify |
+| **Backend** | NestJS 10 · TypeORM · PostgreSQL |
+| **Image Hosting** | Cloudinary |
+| **Deployment** | Vercel (frontend) · Render (backend) |
+
+---
+
+## Features
+
+- 🛍️ **Product Catalog** — Browse products by category
+- 🛒 **Shopping Cart** — Add / remove items, adjust quantities
+- 🏷️ **Coupon System** — Apply percentage-based discounts
+- 📊 **Sales Dashboard** — View daily transactions with calendar filter
+- 📦 **Inventory Control** — Automatic stock update on purchase
+- ☁️ **Image Upload** — Cloudinary integration for product images
+- 📱 **Responsive** — Mobile-friendly layout with Tailwind
+
+---
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 18+
+- PostgreSQL database
+- Backend running locally (see [backend repo](https://github.com/KAESZAR/pos-nest-backend))
+
+### Setup
+
+```bash
+git clone https://github.com/KAESZAR/deploy_nextjs_pos.git
+cd deploy_nextjs_pos
+npm install
+```
+
+Create a `.env` file in the root:
+
+```env
+API_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:3000
+NEXT_PUBLIC_DOMAIN=http://localhost:3001
+```
+
+> ⚠️ Never commit `.env` files. The values above are for local development — set your own production URLs in your hosting dashboard (Vercel / Render).
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3001](http://localhost:3001).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `API_URL` | Backend server URL (server-side) | `http://localhost:3000` |
+| `NEXT_PUBLIC_API_URL` | Backend URL exposed to client | `http://localhost:3000` |
+| `NEXT_PUBLIC_DOMAIN` | Frontend URL (self-fetch for SSR) | `http://localhost:3001` |
 
-To learn more about Next.js, take a look at the following resources:
+> ⚠️ These are local development examples. Set your own production URLs in your hosting dashboard.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+app/
+├── (store)/          # Customer-facing store pages
+├── admin/
+│   ├── products/     # Product CRUD
+│   ├── sales/        # Sales dashboard with calendar
+│   └── layout.tsx    # Admin layout
+├── coupons/          # Coupon management
+├── layout.tsx        # Root layout
+└── providers.tsx     # React Query provider
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+src/
+├── api.ts            # API client functions
+├── schemas.ts        # Zod validation schemas
+├── store.ts          # Zustand cart store
+└── utils.ts          # Formatters & helpers
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+components/
+├── cart/             # Shopping cart UI
+├── products/         # Product display & forms
+├── transactions/     # Sales summary components
+└── ui/               # Reusable UI components
+```
+
+---
+
+## Deployment
+
+### Vercel
+
+1. Push to GitHub and import into [Vercel](https://vercel.com)
+2. Set environment variables in Vercel Dashboard:
+   - `API_URL` → your Render backend URL (e.g. `https://your-app.onrender.com`)
+   - `NEXT_PUBLIC_API_URL` → same backend URL
+   - `NEXT_PUBLIC_DOMAIN` → your Vercel domain (e.g. `https://your-app.vercel.app`)
+3. Deploy
+
+---
+
+## License
+
+MIT
