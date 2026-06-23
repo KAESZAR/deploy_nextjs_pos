@@ -38,7 +38,7 @@ export async function addProduct(prevState: ActionStateType, formData: FormData 
     if(!req.ok) {
         const errors = ErrorResponseSchema.parse(json)
         return {
-            errors: errors.message.map(issue => issue),
+            errors: typeof errors.message === 'string' ? [errors.message] : errors.message,
             success: ''
         }
     }

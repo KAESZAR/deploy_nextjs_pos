@@ -19,7 +19,7 @@ export async function submitOrder(data: unknown) {
     if(!req.ok) {
         const errors = ErrorResponseSchema.parse(json)
         return {
-            errors: errors.message.map(issue => issue), //accedemos a cada error y lo retornamos
+            errors: typeof errors.message === 'string' ? [errors.message] : errors.message,
             success: ''
         }
     }

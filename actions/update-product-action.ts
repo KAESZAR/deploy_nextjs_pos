@@ -37,7 +37,7 @@ export async function updateProduct(productId: Product['id'], prevState: ActionS
     if(!req.ok) {
         const errors = ErrorResponseSchema.parse(json)
         return {
-            errors: errors.message.map(issue => issue),
+            errors: typeof errors.message === 'string' ? [errors.message] : errors.message,
             success: ''
         }
     }
